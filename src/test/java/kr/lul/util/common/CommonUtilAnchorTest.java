@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * Created by justburrow on 2017. 1. 5..
  */
 public class CommonUtilAnchorTest {
   @Test
