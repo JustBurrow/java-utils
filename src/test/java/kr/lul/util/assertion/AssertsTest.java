@@ -138,8 +138,10 @@ public class AssertsTest {
 
   @Test
   public void testEmptyWithCharacterSequence() throws Exception {
-    Asserts.empty((String) null);
-    Asserts.empty((StringBuilder) null);
+    assertThatThrownBy(() -> Asserts.empty((String) null)).isInstanceOf(AssertException.class)
+        .hasMessage("string is null.");
+    assertThatThrownBy(() -> Asserts.empty((StringBuilder) null)).isInstanceOf(AssertException.class)
+        .hasMessage("string is null.");
 
     Asserts.empty("");
     Asserts.empty(new StringBuilder());
@@ -168,7 +170,8 @@ public class AssertsTest {
 
   @Test
   public void testEmptyWithCollection() throws Exception {
-    Asserts.empty((Collection) null);
+    assertThatThrownBy(() -> Asserts.empty((Collection) null)).isInstanceOf(AssertException.class)
+        .hasMessage("collection is null.");
 
     Asserts.empty(emptyList());
     Asserts.empty(emptySet());
@@ -195,7 +198,8 @@ public class AssertsTest {
 
   @Test
   public void testEmptyWithMap() throws Exception {
-    Asserts.empty((Map) null);
+    assertThatThrownBy(() -> Asserts.empty((Map) null)).isInstanceOf(AssertException.class)
+        .hasMessage("map is null.");
     Asserts.empty(new HashMap());
     Asserts.empty(new LinkedHashMap());
 

@@ -231,7 +231,9 @@ public abstract class Asserts {
    * @throws AssertException 문자열이 내용이 있을 때
    */
   public static void empty(CharSequence str) throws AssertException {
-    if (null != str && 0 < str.length()) {
+    if (str == null) {
+      throw new AssertException("string is null.");
+    } else if (0 < str.length()) {
       throw new AssertException("string[%s] is not empty.", str);
     }
   }
@@ -257,7 +259,9 @@ public abstract class Asserts {
    * @throws AssertException 컬렉션에 내용이 있을 경우.
    */
   public static void empty(Collection collection) throws AssertException {
-    if (null != collection && !collection.isEmpty()) {
+    if (collection == null) {
+      throw new AssertException("collection is null.");
+    } else if (!collection.isEmpty()) {
       throw new AssertException("collection[%s] is not empty.", collection);
     }
   }
@@ -283,7 +287,9 @@ public abstract class Asserts {
    * @throws AssertException 맵에 내용이 있을 경우.
    */
   public static void empty(Map map) throws AssertException {
-    if (null != map && !map.isEmpty()) {
+    if (map == null) {
+      throw new AssertException("map is null.");
+    } else if (!map.isEmpty()) {
       throw new AssertException("map[%s] is not empty.");
     }
   }
